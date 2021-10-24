@@ -5,7 +5,10 @@ public class App {
         VideoService videoService = new VideoService(Library.getData());
 
         // zad 1 - lista wszystkich epizodow
-        videoService.listAllEpisodes();
+        System.out.println(videoService.listAllEpisodes());
+
+        // zad 2 - lista wszystkich video
+        System.out.println(videoService.listAllVideos());
 
     }
 }

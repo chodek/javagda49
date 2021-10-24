@@ -16,4 +16,12 @@ public class VideoService {
                 .flatMap(season -> season.episodes.stream())
                 .collect(Collectors.toList());
     }
+
+    // Lista wszystkich video
+    public List<Video> listAllVideos() {
+        return seasonList.stream()
+                .flatMap(season -> season.episodes.stream())
+                .flatMap(epsiode -> epsiode.videos.stream())
+                .collect(Collectors.toList());
+    }
 }
