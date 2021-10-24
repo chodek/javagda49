@@ -12,6 +12,7 @@ public class SupplierExample {
         printValueFromSupplier(() -> "Test!");
         printValueFromSupplier(() -> 123);
 
+
     }
 
 

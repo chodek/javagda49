@@ -1,7 +1,5 @@
 package biblioteka;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -12,13 +10,13 @@ public class Main {
         Copy[] copies = new Copy[]{copyOne, copyTwo, copyOne, copyOne};
         Library library = new Library(copies);
 
-        try {
+     /*   try {
             System.out.println(Arrays.toString(library.findByTitle("akademia kleklsa")));
         } catch (NoBookFoundException e) {
             e.printStackTrace();
             System.out.println("Nie znaleziono ksiazki o takim tytule");
         }
-
+*/
 
        /* System.out.println(Arrays.toString(library.findByAuthor(authorOne)));
         System.out.println(Arrays.toString(library.findByAuthor(authorTwo)));

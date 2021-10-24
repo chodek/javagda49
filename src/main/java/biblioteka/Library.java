@@ -1,5 +1,9 @@
 package biblioteka;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
 public class Library {
     private Copy[] copies;
 
@@ -7,7 +11,7 @@ public class Library {
         this.copies = copies;
     }
 
-    public Copy[] findByTitle(String title) throws NoBookFoundException {
+    public List<Copy> findByTitle(String title) throws NoBookFoundException {
         if (title != null) {
             int counterOfFoundBooks = 0;
             for (Copy copy : copies) {
@@ -24,7 +28,7 @@ public class Library {
             if (foundBooks.length == 0) {
                 throw new NoBookFoundException();
             }
-            return foundBooks;
+            return Arrays.asList(foundBooks);
 
         }
         return null;
@@ -37,7 +41,7 @@ public class Library {
         return null;
     }
 
-    public Author findAuthorWithMostBooks() {
+    public Optional<Author> findAuthorWithMostBooks() {
         Author[] tableOfAuthorsFromAllBooks = new Author[copies.length];
         for (int i = 0; i < copies.length; i++) {
             tableOfAuthorsFromAllBooks[i] = copies[i].getAuthor();
@@ -52,7 +56,7 @@ public class Library {
 
         int indexOfMostProductiveAuthor = findIndexOfMaxValue(numberOfBooksFromAuthor);
 
-        return tableOfAuthorsFromAllBooks[indexOfMostProductiveAuthor];
+        return Optional.ofNullable(tableOfAuthorsFromAllBooks[indexOfMostProductiveAuthor]);
     }
 
     private int findIndexOfMaxValue(int[] numberOfBooksFromAuthor) {
