@@ -1,25 +1,25 @@
 package inputoutput.io;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
-public class ByteStream {
+public class CharacterStream {
     public static void main(String[] args) throws IOException {
 
-        FileInputStream in = null;
-        FileOutputStream out = null;
+        FileReader in = null;
+        FileWriter out = null;
 
         try {
-            in = new FileInputStream("src\\main\\resources\\user.txt");
-            out = new FileOutputStream("src\\main\\resources\\user_output.txt");
+            in = new FileReader("src\\main\\resources\\user.txt");
+            out = new FileWriter("src\\main\\resources\\user_output.txt", true);
+
             int c;
 
             while ((c = in.read()) != -1) {
-                out.write(c);
+                out.append((char) c);
             }
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             if (in != null) {
@@ -29,6 +29,8 @@ public class ByteStream {
                 out.close();
             }
         }
+
+
     }
 
 }
